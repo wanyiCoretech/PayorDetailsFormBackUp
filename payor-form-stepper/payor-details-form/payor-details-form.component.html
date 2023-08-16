@@ -1,0 +1,681 @@
+<form [formGroup]="payorForm" (ngSubmit)="onSubmit()">
+  <div class="card-body bg-primary-1 color-secondary-1 p-3">
+    <div class="text-center">
+      <h4 class="m-0">{{ 'payorDetailsForm.title' | translate }}</h4>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              {{ 'payorDetailsForm.certNo' | translate }}
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+              <input class="form-control mandatory" type="text" formControlName="certNo" [appDisabledCursor]="payorForm.get('certNo').disabled" />
+              <div *ngIf="commonService.commonError(payorForm,'certNo', 'required',null)" class="error-message">Required</div>
+              <div *ngIf="commonService.commonError(payorForm,'certNo', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+              <div *ngIf="commonService.commonError(payorForm,'certNo', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              {{ 'payorDetailsForm.personCoverName' | translate }}
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+              <input class="form-control mandatory" type="text" formControlName="personCoverName" [appDisabledCursor]="payorForm.get('personCoverName').disabled" />
+              <div *ngIf="commonService.commonError(payorForm,'personCoverName', 'required',null)" class="error-message">Required</div>
+              <div *ngIf="commonService.commonError(payorForm,'personCoverName', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+              <div *ngIf="commonService.commonError(payorForm,'personCoverName', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              {{ 'payorDetailsForm.personCoverIC' | translate }}
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+              <input class="form-control mandatory" type="text" formControlName="personCoverIC" [appDisabledCursor]="payorForm.get('personCoverIC').disabled" />
+              <div *ngIf="commonService.commonError(payorForm,'personCoverIC', 'required',null)" class="error-message">Required</div>
+              <div *ngIf="commonService.commonError(payorForm,'personCoverIC', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+              <div *ngIf="commonService.commonError(payorForm,'personCoverIC', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              {{ 'payorDetailsForm.participantName' | translate }}
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+              <input class="form-control mandatory" type="text" formControlName="participantName" [appDisabledCursor]="payorForm.get('participantName').disabled" />
+              <div *ngIf="commonService.commonError(payorForm,'participantName', 'required',null)" class="error-message">Required</div>
+              <div *ngIf="commonService.commonError(payorForm,'participantName', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+              <div *ngIf="commonService.commonError(payorForm,'participantName', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              {{ 'payorDetailsForm.participantIC' | translate }}
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+              <input class="form-control mandatory" type="text" formControlName="participantIC" [appDisabledCursor]="payorForm.get('participantIC').disabled" />
+              <div *ngIf="commonService.commonError(payorForm,'participantIC', 'required',null)" class="error-message">Required</div>
+              <div *ngIf="commonService.commonError(payorForm,'participantIC', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+              <div *ngIf="commonService.commonError(payorForm,'participantIC', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row mb-3">
+          <h5>  {{ 'payorDetailsForm.notice.title' | translate }}</h5>
+          <hr class="main-title" />
+          <ol class="text-justify">
+            <li><p><strong> {{ 'payorDetailsForm.notice.personalData' | translate }}</strong>{{ 'payorDetailsForm.notice.paragraph1' | translate }}</p></li>
+            <li>
+              <strong>{{ 'payorDetailsForm.notice.percontractualDuty' | translate }}</strong>
+              <ol class="text-justify" style="list-style-type:none">
+                <li>
+                  <u>{{ 'payorDetailsForm.notice.header2.1' | translate }}</u>
+                  <ol class="text-justify" style="list-style-type:none">
+                    <li>{{ 'payorDetailsForm.notice.paragraph2.1' | translate }}</li>
+                  </ol>
+                </li>
+              </ol>
+              <ol class="text-justify" style="list-style-type:none">
+                <li>
+                  <u>{{ 'payorDetailsForm.notice.header2.2' | translate }}</u>
+                  <ol class="text-justify" style="list-style-type:none">
+                    <li>{{ 'payorDetailsForm.notice.paragraph2.2' | translate }}</li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+        <div class="row mb-3">
+          <h5><strong>{{ 'payorDetailsForm.part2.header' | translate }}</strong></h5>
+          <hr class="main-title" />
+        </div>
+        <div class="row mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.fullName' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <input class="form-control mandatory" type="text" formControlName="fullName" [appDisabledCursor]="payorForm.get('fullName').disabled" />
+                <div *ngIf="commonService.commonError(payorForm,'fullName', 'required',null)" class="error-message">Required</div>
+                <div *ngIf="commonService.commonError(payorForm,'fullName', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                <div *ngIf="commonService.commonError(payorForm,'fullName', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.icNo' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <input class="form-control mandatory" type="text" formControlName="icNo" [appDisabledCursor]="payorForm.get('icNo').disabled" />
+                <div *ngIf="commonService.commonError(payorForm,'icNo', 'required',null)" class="error-message">Required</div>
+                <div *ngIf="commonService.commonError(payorForm,'icNo', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                <div *ngIf="commonService.commonError(payorForm,'icNo', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.oldIc' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <input class="form-control mandatory" type="text" formControlName="oldIc" [appDisabledCursor]="payorForm.get('oldIc').disabled" />
+                <div *ngIf="commonService.commonError(payorForm,'oldIc', 'required',null)" class="error-message">Required</div>
+                <div *ngIf="commonService.commonError(payorForm,'oldIc', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                <div *ngIf="commonService.commonError(payorForm,'oldIc', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.date' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <mat-form-field class="form-control mandatory date" style="padding:0;">
+                  <input matInput [matDatepicker]="picker1" class="mandatory" formControlName="dateOfBirth" placeholder="{{ 'payorDetailsForm.part2.date1' | translate }}">
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.nationality.title' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <input class="form-control mandatory" type="text" formControlName="nationality" />
+                <div *ngIf="commonService.commonError(payorForm,'nationality', 'required',null)" class="error-message">Required</div>
+                <div *ngIf="commonService.commonError(payorForm,'nationality', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                <div *ngIf="commonService.commonError(payorForm,'nationality', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.relationship' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <input class="form-control mandatory" type="text" formControlName="Relationship" />
+                <div *ngIf="commonService.commonError(payorForm,'Relationship', 'required',null)" class="error-message">Required</div>
+                <div *ngIf="commonService.commonError(payorForm,'Relationship', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                <div *ngIf="commonService.commonError(payorForm,'Relationship', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.occupation' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <input class="form-control mandatory" type="text" formControlName="occupation" />
+                <div *ngIf="commonService.commonError(payorForm,'occupation', 'required',null)" class="error-message">Required</div>
+                <div *ngIf="commonService.commonError(payorForm,'occupation', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                <div *ngIf="commonService.commonError(payorForm,'occupation', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row mb-3">
+          <h5> {{ 'payorDetailsForm.part2.contact.title' | translate }}</h5>
+          <hr class="main-title" />
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.contact.mobile' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <input class="form-control mandatory" type="text" formControlName="mobile" />
+                <div *ngIf="commonService.commonError(payorForm,'mobile', 'required',null)" class="error-message">Required</div>
+                <div *ngIf="commonService.commonError(payorForm,'mobile', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                <div *ngIf="commonService.commonError(payorForm,'mobile', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.contact.residential' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <input class="form-control mandatory" type="text" formControlName="residential" />
+                <div *ngIf="commonService.commonError(payorForm,'residential', 'required',null)" class="error-message">Required</div>
+                <div *ngIf="commonService.commonError(payorForm,'residential', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                <div *ngIf="commonService.commonError(payorForm,'residential', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.contact.office' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <input class="form-control mandatory" type="text" formControlName="office" />
+                <div *ngIf="commonService.commonError(payorForm,'office', 'required',null)" class="error-message">Required</div>
+                <div *ngIf="commonService.commonError(payorForm,'office', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                <div *ngIf="commonService.commonError(payorForm,'office', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="main-title" />
+        <div class="row mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.typeOfBusiness' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <input class="form-control mandatory" type="text" formControlName="typeOfBusiness" />
+                <div *ngIf="commonService.commonError(payorForm,'typeOfBusiness', 'required',null)" class="error-message">Required</div>
+                <div *ngIf="commonService.commonError(payorForm,'typeOfBusiness', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                <div *ngIf="commonService.commonError(payorForm,'typeOfBusiness', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.nameOfEmployer' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <input class="form-control mandatory" type="text" formControlName="nameOfEmployer" />
+                <div *ngIf="commonService.commonError(payorForm,'nameOfEmployer', 'required',null)" class="error-message">Required</div>
+                <div *ngIf="commonService.commonError(payorForm,'nameOfEmployer', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                <div *ngIf="commonService.commonError(payorForm,'nameOfEmployer', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{ 'payorDetailsForm.part2.yearlyIncome' | translate }}
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <input class="form-control mandatory" type="text" formControlName="yearlyIncome" />
+                <div *ngIf="commonService.commonError(payorForm,'yearlyIncome', 'required',null)" class="error-message">Required</div>
+                <div *ngIf="commonService.commonError(payorForm,'yearlyIncome', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                <div *ngIf="commonService.commonError(payorForm,'yearlyIncome', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <h5>{{ 'payorDetailsForm.part2.correspondence.title' | translate }}</h5>
+            <hr class="main-title" />
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <div class="row mb-3">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                  {{ 'payorDetailsForm.part2.correspondence.a.title' | translate }}
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                  <div fxLayout="row" fxLayoutAlign="center">
+                    <mat-radio-group aria-labelledby="radio-group-label1" class="radio-group" formControlName="correspondenceAddress">
+                      <mat-radio-button class="radio-button me-5" value="Y">{{ 'payorDetailsForm.part2.correspondence.a.option1' | translate }}</mat-radio-button>
+                      <mat-radio-button class="radio-button me-5" value="N">{{ 'payorDetailsForm.part2.correspondence.a.option2' | translate }}</mat-radio-button>
+                    </mat-radio-group>
+                  </div>
+                  <div *ngIf="commonService.commonError(payorForm,'correspondenceAddress', 'required',null)" class="error-message">Required</div>
+                  <div *ngIf="commonService.commonError(payorForm,'correspondenceAddress', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                  <div *ngIf="commonService.commonError(payorForm,'correspondenceAddress', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                </div>
+              </div>
+            </div>
+            <div [ngStyle]="{ display: payorForm.get('correspondenceAddress').value === 'Y' ? '' : 'none' }">
+              <div class="row mb-3">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                      <strong><u>{{ 'payorDetailsForm.part2.correspondence.b.title' | translate }}</u></strong>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                      <div fxLayout="row" fxLayoutAlign="center">
+                        <mat-radio-group aria-labelledby="radio-group-label1" class="radio-group" formControlName="ownRented">
+                          <mat-radio-button class="radio-button me-5" value="Y">{{ 'payorDetailsForm.part2.correspondence.b.option1' | translate }}</mat-radio-button>
+                          <mat-radio-button class="radio-button me-5" value="N">{{ 'payorDetailsForm.part2.correspondence.b.option2' | translate }}</mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+                      <div *ngIf="commonService.commonError(payorForm,'ownRented', 'required',null)" class="error-message">Required</div>
+                      <div *ngIf="commonService.commonError(payorForm,'ownRented', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                      <div *ngIf="commonService.commonError(payorForm,'ownRented', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                      {{ 'payorDetailsForm.part2.correspondence.b.address' | translate }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                      <input class="form-control mandatory" type="text" formControlName="address" />
+                      <div *ngIf="commonService.commonError(payorForm,'address', 'required',null)" class="error-message">Required</div>
+                      <div *ngIf="commonService.commonError(payorForm,'address', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                      <div *ngIf="commonService.commonError(payorForm,'address', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                      {{ 'payorDetailsForm.part2.correspondence.b.postCode' | translate }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                      <input class="form-control mandatory" type="text" formControlName="postCode" />
+                      <div *ngIf="commonService.commonError(payorForm,'postCode', 'required',null)" class="error-message">Required</div>
+                      <div *ngIf="commonService.commonError(payorForm,'postCode', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                      <div *ngIf="commonService.commonError(payorForm,'postCode', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                      {{ 'payorDetailsForm.part2.correspondence.b.state' | translate }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                      <input class="form-control mandatory" type="text" formControlName="state" />
+                      <div *ngIf="commonService.commonError(payorForm,'state', 'required',null)" class="error-message">Required</div>
+                      <div *ngIf="commonService.commonError(payorForm,'state', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                      <div *ngIf="commonService.commonError(payorForm,'state', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                      {{ 'payorDetailsForm.part2.correspondence.b.country' | translate }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                      <input class="form-control mandatory" type="text" formControlName="country" />
+                      <div *ngIf="commonService.commonError(payorForm,'country', 'required',null)" class="error-message">Required</div>
+                      <div *ngIf="commonService.commonError(payorForm,'country', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                      <div *ngIf="commonService.commonError(payorForm,'country', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div [ngStyle]="{ display: payorForm.get('correspondenceAddress').value === 'N' ? '' : 'none' }">
+              <div class="row mb-3">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                      <strong><u>{{ 'payorDetailsForm.part2.correspondence.c.title' | translate }}</u></strong>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                      <div fxLayout="row" fxLayoutAlign="center">
+                        <mat-radio-group aria-labelledby="radio-group-label1" class="radio-group" formControlName="ownRented">
+                          <mat-radio-button class="radio-button me-5" value="Y">{{ 'payorDetailsForm.part2.correspondence.b.option1' | translate }}</mat-radio-button>
+                          <mat-radio-button class="radio-button me-5" value="N">{{ 'payorDetailsForm.part2.correspondence.b.option2' | translate }}</mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+                      <div *ngIf="commonService.commonError(payorForm,'ownRented', 'required',null)" class="error-message">Required</div>
+                      <div *ngIf="commonService.commonError(payorForm,'ownRented', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                      <div *ngIf="commonService.commonError(payorForm,'ownRented', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                      {{ 'payorDetailsForm.part2.correspondence.b.address' | translate }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                      <input class="form-control mandatory" type="text" formControlName="address" />
+                      <div *ngIf="commonService.commonError(payorForm,'address', 'required',null)" class="error-message">Required</div>
+                      <div *ngIf="commonService.commonError(payorForm,'address', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                      <div *ngIf="commonService.commonError(payorForm,'address', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                      {{ 'payorDetailsForm.part2.correspondence.b.postCode' | translate }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                      <input class="form-control mandatory" type="text" formControlName="postCode" />
+                      <div *ngIf="commonService.commonError(payorForm,'postCode', 'required',null)" class="error-message">Required</div>
+                      <div *ngIf="commonService.commonError(payorForm,'postCode', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                      <div *ngIf="commonService.commonError(payorForm,'postCode', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                      {{ 'payorDetailsForm.part2.correspondence.b.state' | translate }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                      <input class="form-control mandatory" type="text" formControlName="state" />
+                      <div *ngIf="commonService.commonError(payorForm,'state', 'required',null)" class="error-message">Required</div>
+                      <div *ngIf="commonService.commonError(payorForm,'state', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                      <div *ngIf="commonService.commonError(payorForm,'state', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                      {{ 'payorDetailsForm.part2.correspondence.b.country' | translate }}
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                      <input class="form-control mandatory" type="text" formControlName="country" />
+                      <div *ngIf="commonService.commonError(payorForm,'country', 'required',null)" class="error-message">Required</div>
+                      <div *ngIf="commonService.commonError(payorForm,'country', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                      <div *ngIf="commonService.commonError(payorForm,'country', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <hr class="main-title" />
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                  {{ 'payorDetailsForm.part2.sourceOfWealth.title' | translate }}
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                  <p><mat-checkbox formControlName="saving">{{ 'payorDetailsForm.part2.sourceOfWealth.option1' | translate }}</mat-checkbox></p>
+                  <p><mat-checkbox formControlName="epf">{{ 'payorDetailsForm.part2.sourceOfWealth.option2' | translate }}</mat-checkbox></p>
+                  <p><mat-checkbox formControlName="inheritance">{{ 'payorDetailsForm.part2.sourceOfWealth.option3' | translate }}</mat-checkbox></p>
+                  <p><mat-checkbox formControlName="investment">{{ 'payorDetailsForm.part2.sourceOfWealth.option4' | translate }}</mat-checkbox></p>
+                  <p><mat-checkbox formControlName="wealthOthers">{{ 'payorDetailsForm.part2.sourceOfWealth.option5' | translate }}</mat-checkbox></p>
+                  <div *ngIf="payorForm.get('wealthOthers')?.value">
+                    <input class="form-control mandatory" type="text" formControlName="otherSourceOfWealth" />
+                    <div *ngIf="commonService.commonError(payorForm,'otherSourceOfWealth', 'required',null)" class="error-message">Required</div>
+                    <div *ngIf="commonService.commonError(payorForm,'otherSourceOfWealth', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                    <div *ngIf="commonService.commonError(payorForm,'otherSourceOfWealth', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                  {{ 'payorDetailsForm.part2.sourceOfFunds.title' | translate }}
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                  <p><mat-checkbox formControlName="Occupation">{{ 'payorDetailsForm.part2.sourceOfFunds.option1' | translate }}</mat-checkbox></p>
+                  <p><mat-checkbox formControlName="business">{{ 'payorDetailsForm.part2.sourceOfFunds.option2' | translate }}</mat-checkbox></p>
+                  <p><mat-checkbox formControlName="sales">{{ 'payorDetailsForm.part2.sourceOfFunds.option3' | translate }}</mat-checkbox></p>
+                  <p><mat-checkbox formControlName="dividend">{{ 'payorDetailsForm.part2.sourceOfFunds.option4' | translate }}</mat-checkbox></p>
+                  <p><mat-checkbox formControlName="fundOthers">{{ 'payorDetailsForm.part2.sourceOfFunds.option5' | translate }}</mat-checkbox></p>
+                  <div *ngIf="payorForm.get('fundOthers')?.value">
+                    <input class="form-control mandatory" type="text" formControlName="otherSourceOfFund" />
+                    <div *ngIf="commonService.commonError(payorForm,'otherSourceOfFund', 'required',null)" class="error-message">Required</div>
+                    <div *ngIf="commonService.commonError(payorForm,'otherSourceOfFund', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                    <div *ngIf="commonService.commonError(payorForm,'otherSourceOfFund', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <h5>{{ 'payorDetailsForm.declaration.title' | translate }}</h5>
+            <hr class="main-title" />
+            <div class="text-justify">{{ 'payorDetailsForm.declaration.paragraph1' | translate }}</div>
+          </div>
+          <div class="row mb-3">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div id="imgwitnessSign" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:none;">
+                  <img class="signatureimage" src="{{witnessSign}}" />
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 btnAction">
+                      <a class="btn btn-primary" (click)="Resign('witnessSign')">Resign</a>
+                    </div>
+                  </div>
+                </div>
+                <div id="divwitnessSign" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <app-signature-field [UserID]="'witnessSign'" (emitSignatureImage)="signature($event)"></app-signature-field>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    {{ 'payorDetailsForm.sign1.title' | translate }}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    {{ 'payorDetailsForm.sign1.date' | translate }}
+                  </div>
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <mat-form-field class="form-control mandatory date" style="padding:0;">
+                      <input matInput [matDatepicker]="picker2" class="mandatory" formControlName="sign1Date" placeholder="{{ 'payorDetailsForm.part2.date1' | translate }}">
+                      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                      <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    {{ 'payorDetailsForm.sign1.name' | translate }}
+                  </div>
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input class="form-control mandatory" type="text" formControlName="witnessName" [appDisabledCursor]="payorForm.get('witnessName').disabled" />
+                    <div *ngIf="commonService.commonError(payorForm,'witnessName', 'required',null)" class="error-message">Required</div>
+                    <div *ngIf="commonService.commonError(payorForm,'witnessName', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                    <div *ngIf="commonService.commonError(payorForm,'witnessName', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    {{ 'payorDetailsForm.sign1.ic' | translate }}
+                  </div>
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input class="form-control mandatory" type="text" formControlName="witnessIc" [appDisabledCursor]="payorForm.get('witnessIc').disabled" />
+                    <div *ngIf="commonService.commonError(payorForm,'witnessIc', 'required',null)" class="error-message">Required</div>
+                    <div *ngIf="commonService.commonError(payorForm,'witnessIc', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                    <div *ngIf="commonService.commonError(payorForm,'witnessIc', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div id="imgpayorSign" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:none;">
+                  <img class="signatureimage" src="{{payorSign}}" />
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 btnAction">
+                      <a class="btn btn-primary" (click)="Resign('payorSign')">Resign</a>
+                    </div>
+                  </div>
+                </div>
+                <div id="divpayorSign" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <app-signature-field [UserID]="'payorSign'" (emitSignatureImage)="signature($event)"></app-signature-field>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    {{ 'payorDetailsForm.sign2.title' | translate }}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    {{ 'payorDetailsForm.sign2.date' | translate }}
+                  </div>
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <mat-form-field class="form-control mandatory date" style="padding:0;">
+                      <input matInput [matDatepicker]="picker3" class="mandatory" formControlName="sign2Date" placeholder="{{ 'payorDetailsForm.part2.date1' | translate }}">
+                      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                      <mat-datepicker #picker3></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    {{ 'payorDetailsForm.sign2.name' | translate }}
+                  </div>
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input class="form-control mandatory" type="text" formControlName="payorName" [appDisabledCursor]="payorForm.get('payorName').disabled" />
+                    <div *ngIf="commonService.commonError(payorForm,'payorName', 'required',null)" class="error-message">Required</div>
+                    <div *ngIf="commonService.commonError(payorForm,'payorName', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                    <div *ngIf="commonService.commonError(payorForm,'payorName', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div id="imgpayorSign" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:none;">
+                  <img class="signatureimage" src="{{participantSign}}" />
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 btnAction">
+                      <a class="btn btn-primary" (click)="Resign('participantSign')">Resign</a>
+                    </div>
+                  </div>
+                </div>
+                <div id="divparticipantSign" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <app-signature-field [UserID]="'participantSign'" (emitSignatureImage)="signature($event)"></app-signature-field>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    {{ 'payorDetailsForm.sign3.title' | translate }}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    {{ 'payorDetailsForm.sign3.date' | translate }}
+                  </div>
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <mat-form-field class="form-control mandatory date" style="padding:0;">
+                      <input matInput [matDatepicker]="picker4" class="mandatory" formControlName="sign3Date" placeholder="{{ 'payorDetailsForm.part2.date1' | translate }}">
+                      <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                      <mat-datepicker #picker4></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    {{ 'payorDetailsForm.sign2.name' | translate }}
+                  </div>
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <input class="form-control mandatory" type="text" formControlName="participantName1" [appDisabledCursor]="payorForm.get('participantName1').disabled" />
+                    <div *ngIf="commonService.commonError(payorForm,'participantName1', 'required',null)" class="error-message">Required</div>
+                    <div *ngIf="commonService.commonError(payorForm,'participantName1', 'pattern',null)" class="error-message">{{ErrorText?ErrorText:'Invalid Format'}}</div>
+                    <div *ngIf="commonService.commonError(payorForm,'participantName1', 'noSpecialCharacters',null)" class="error-message">{{ErrorText?ErrorText:'No Special Characters'}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row my-3">
+      <div class="col-lg-5 col-md-4"></div>
+      <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+        <button class="btn btn-primary w-100" type="submit">{{'SAForm.saveBtn' | translate}}</button>
+      </div>
+    </div>
+  </div>
+</form>

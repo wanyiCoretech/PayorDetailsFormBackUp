@@ -1,0 +1,21 @@
+<mat-stepper [linear]="isLinear" headerPosition="top" #stepper (selectionChange)="onStepChange($event)">
+  <mat-step *ngFor="let step of stepperSURR;let stepIndex = index" [stepControl]="stepGroups[stepIndex]">
+    <ng-template matStepLabel>{{step}}</ng-template>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+        <a class="btnArrow btnBack hidden-xs" *ngIf="stepIndex!=0" (click)="goBack(stepper);"><i class="material-icons">arrow_back_ios</i></a>
+        <a class="btnArrow btnNext hidden-xs" *ngIf="stepIndex!=stepperSURR.length-1" (click)="goForward(stepper);"><i class="material-icons">arrow_forward_ios</i></a>
+      </div>
+    </div>
+    <div class="card">
+      <app-payor-details-form [isMove]="isMove" (checkedValidate)="validMove($event)" *ngIf="stepper.selectedIndex === 0 && stepIndex === 0"></app-payor-details-form>
+    </div>
+  </mat-step>
+</mat-stepper>
+
+
+
+
+
+
+
